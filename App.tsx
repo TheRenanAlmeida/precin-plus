@@ -405,33 +405,11 @@ const CustomerQuoteTable: React.FC<CustomerQuoteTableProps> = ({
                     </span>
                   </td>
                   
-                    <td className="px-4 py-4">
-                      {isAvgMode ? (
-                        <>
-                          {index === 0 && (
-                            <div className="grid grid-cols-2 gap-1 max-w-[180px] mx-auto">
-                              {Array.from(selectedDistributors).sort().map((distributor: string) => {
-                                  const distributorStyle = distributorColors[distributor] || distributorColors.DEFAULT;
-                                  return (
-                                      <span
-                                          key={distributor}
-                                          className="px-3 py-1.5 text-xs font-bold rounded-full text-center truncate distributor-pill"
-                                          style={{ 
-                                              backgroundColor: distributorStyle.background, 
-                                              color: distributorStyle.border,
-                                              '--shadow-color': distributorStyle.shadowColor,
-                                          }}
-                                      >
-                                          {distributor}
-                                      </span>
-                                  );
-                              })}
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        <div className="grid grid-cols-2 gap-1 max-w-[180px] mx-auto">
-                          {distributors.map((distributor) => {
+                  {isAvgMode ? (
+                    index === 0 && (
+                      <td className="px-4 py-4 align-top" rowSpan={products.length}>
+                        <div className="grid grid-cols-2 gap-1.5 max-w-[240px] mx-auto">
+                          {Array.from(selectedDistributors).sort().map((distributor: string) => {
                             const distributorStyle = distributorColors[distributor] || distributorColors.DEFAULT;
                             return (
                               <span
@@ -448,8 +426,30 @@ const CustomerQuoteTable: React.FC<CustomerQuoteTableProps> = ({
                             );
                           })}
                         </div>
-                      )}
+                      </td>
+                    )
+                  ) : (
+                    <td className="px-4 py-4">
+                      <div className="flex flex-wrap items-center justify-center gap-1 max-w-[200px] mx-auto">
+                        {distributors.map((distributor) => {
+                          const distributorStyle = distributorColors[distributor] || distributorColors.DEFAULT;
+                          return (
+                            <span
+                              key={distributor}
+                              className="px-3 py-1.5 text-xs font-bold rounded-full text-center truncate distributor-pill"
+                              style={{ 
+                                  backgroundColor: distributorStyle.background, 
+                                  color: distributorStyle.border,
+                                  '--shadow-color': distributorStyle.shadowColor,
+                              }}
+                            >
+                              {distributor}
+                            </span>
+                          );
+                        })}
+                      </div>
                     </td>
+                  )}
                 </tr>
               );
             })}
