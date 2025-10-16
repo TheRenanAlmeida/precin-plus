@@ -1,0 +1,50 @@
+// config.ts
+import type { CustomerPrices, PostoName, DistributorStyle } from './types';
+
+export const POSTO_PRICES: Record<PostoName, CustomerPrices> = {
+  'AGUA FRESCA': { 'Gasolina Comum': 5.30, 'Gasolina Aditivada': 5.31, 'Etanol': 4.00, 'Diesel S10': 5.50, 'Diesel S500': 5.40 },
+  'CAMINHO NOVO': { 'Gasolina Comum': 5.25, 'Gasolina Aditivada': 5.29, 'Etanol': 3.95, 'Diesel S10': 5.45, 'Diesel S500': 5.35 },
+  'SANTA MARIA': { 'Gasolina Comum': 5.35, 'Gasolina Aditivada': 5.40, 'Etanol': 4.05, 'Diesel S10': 5.55, 'Diesel S500': 5.48 },
+  'FENIX': { 'Gasolina Comum': 5.28, 'Gasolina Aditivada': 5.33, 'Etanol': 3.98, 'Diesel S10': 5.49, 'Diesel S500': 5.41 }
+};
+
+export const DISTRIBUTOR_BRAND_COLORS: Record<string, DistributorStyle> = {
+  'ALE': { background: 'rgba(0, 120, 190, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'ATEM': { background: 'rgba(230, 0, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Artpetro': { background: 'rgba(230, 110, 20, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Atlantica': { background: 'rgba(0, 100, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Charrua': { background: 'rgba(255, 0, 0, 0.9)', border: 'rgba(255, 221, 0, 0.9)' },
+  'Cia Petro': { background: 'rgba(255, 221, 0, 0.9)', border: 'rgba(0, 67, 155, 0.9)', shadowColor: 'rgba(0, 75, 145, 0.5)' },
+  'Danpetro': { background: 'rgba(255, 0, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Estrada': { background: 'rgba(0, 60, 150, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Federal': { background: 'rgba(0, 61, 128, 0.9)', border: 'rgba(255, 255, 0, 0.9)', shadowColor: 'rgba(0, 75, 145, 0.5)' },
+  'FlexPetro': { background: 'rgba(50, 50, 120, 0.9)', border: 'rgba(255, 255, 255, 0.9)', shadowColor: 'rgba(255, 165, 0, 0.5)' },
+  'GP': { background: 'rgba(0, 160, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Idaza': { background: 'rgba(255, 140, 0, 0.9)', border: 'rgba(70, 70, 70, 0.9)' },
+  'Imperial': { background: 'rgba(0, 60, 120, 0.9)', border: 'rgba(255, 255, 255, 0.9)', shadowColor: 'rgba(237, 28, 36, 0.5)' },
+  'Ipiranga': { background: 'rgba(255, 200, 0, 0.9)', border: 'rgba(0, 60, 128, 0.9)' },
+  'Larco': { background: 'rgba(255, 102, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)', shadowColor: 'rgba(0, 75, 145, 0.5)' },
+  'Maxxi': { background: 'rgba(255, 130, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'On Petro': { background: 'rgba(255, 102, 0, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'PetroBahia': { background: 'rgba(50, 60, 80, 0.9)', border: 'rgba(255, 221, 0, 0.9)', shadowColor: 'rgba(0, 128, 64, 0.5)' },
+  'Pontual': { background: 'rgba(0, 60, 150, 0.9)', border: 'rgba(255, 221, 0, 0.9)' },
+  'Potencial': { background: 'rgba(0, 140, 100, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'RDP': { background: 'rgba(0, 75, 145, 0.9)', border: 'rgba(255, 255, 255, 0.9)', shadowColor: 'rgba(59, 130, 246, 0.5)' },
+  'Rede Sol': { background: 'rgba(237, 28, 36, 0.9)', border: 'rgba(255, 221, 0, 0.9)' },
+  'Rio Branco': { background: 'rgba(0, 51, 102, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Rodoil': { background: 'rgba(237, 28, 36, 0.9)', border: 'rgba(255, 221, 0, 0.9)', shadowColor: 'rgba(255, 221, 0, 0.5)' },
+  'Royal FIC': { background: 'rgba(0, 75, 145, 0.9)', border: 'rgba(255, 170, 0, 0.9)' },
+  'Ruff': { background: 'rgba(255, 255, 255, 0.9)', border: 'rgba(0, 75, 145, 0.9)', shadowColor: 'rgba(0, 75, 145, 0.5)' },
+  'SIM': { background: 'rgba(0, 85, 164, 0.9)', border: 'rgba(0, 128, 0, 0.9)' },
+  'SP': { background: 'rgba(255, 200, 0, 0.9)', border: 'rgba(75, 85, 99, 0.9)' },
+  'Saara': { background: 'rgba(0, 30, 80, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Sada': { background: 'rgba(0, 128, 64, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Santa Lúcia': { background: 'rgba(255, 120, 20, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Setta': { background: 'rgba(255, 200, 0, 0.9)', border: 'rgba(50, 50, 150, 0.9)', shadowColor: 'rgba(237, 28, 36, 0.5)' },
+  'Shell': { background: 'rgba(255, 0, 0, 0.9)', border: 'rgba(255, 221, 0, 0.9)' },
+  'Stang': { background: 'rgba(0, 80, 180, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Terrana': { background: 'rgba(0, 51, 153, 0.9)', border: 'rgba(255, 255, 255, 0.9)', shadowColor: 'rgba(237, 28, 36, 0.5)' },
+  'Torrão': { background: 'rgba(255, 221, 0, 0.9)', border: 'rgba(0, 51, 153, 0.9)', shadowColor: 'rgba(0, 75, 145, 0.5)' },
+  'TotalEnergies': { background: 'rgba(255, 51, 51, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+  'Vibra Energia': { background: 'rgba(0, 102, 51, 0.9)', border: 'rgba(255, 255, 255, 0.9)' },
+};
