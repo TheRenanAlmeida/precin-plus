@@ -70,14 +70,18 @@ export interface CustomerQuoteTableProps {
   handleModeChange: (event: ChangeEvent<HTMLSelectElement>) => void;
   selectedPosto: PostoName;
   handlePostoChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  shareActions: ShareActions;
-  quoteTableRef: RefObject<HTMLDivElement>;
+  quoteTableRef: RefObject<HTMLDivElement> | null;
   distributorColors: DistributorColors;
   products: string[];
-  selectedQuoteDistributor: string;
+  selectedQuoteDistributor: string | undefined;
   onQuoteDistributorChange: (distributor: string) => void;
   allDistributors: string[];
   selectedDistributors: Set<string>;
+  onDistributorPillClick?: (distributor: string) => void;
+  isVolumeMode: boolean;
+  onVolumeModeToggle: () => void;
+  volumes: { [product: string]: string; };
+  onVolumeChange: (product: string, value: string) => void;
 }
 
 export interface MarketDataTableProps {
@@ -85,6 +89,8 @@ export interface MarketDataTableProps {
     marketMinPrices: { [product: string]: MinPriceInfo };
     distributors: string[];
     distributorColors: DistributorColors;
+    selectedDistributors: Set<string>;
+    highlightedDistributor: string | null;
 }
 
 export interface DistributorSelectionPanelProps {
