@@ -1,7 +1,9 @@
 import type { ChangeEvent, RefObject } from 'react';
 
+export const BRANDS = ['Shell', 'Ipiranga', 'Vibra', 'Branca/Indefinida'] as const;
+export type BrandName = typeof BRANDS[number];
+
 export type ComparisonMode = 'min' | 'avg';
-export type PostoName = 'AGUA FRESCA' | 'CAMINHO NOVO' | 'SANTA MARIA' | 'FENIX';
 
 export interface DistributorStyle {
   background: string;
@@ -46,42 +48,42 @@ export interface DistributorConfig {
 
 export interface FuelPriceRecord {
   fuel_type: string;
-  Distribuidora: string;
+  // FIX: Renamed from Distribuidora to match query alias
+  distribuidora: string;
   price: number;
-  Base: string;
+  // FIX: Base is not selected in the query, so it's removed from the type.
 }
 
 export interface DailyPriceSummary {
   created_at: string;
   dia: string;
   fuel_type: string;
-  preco_medio: number;
-  preco_minimo: number;
-  preco_maximo: number;
+  // FIX: Update property names to match Supabase query aliases (e.g., avg_price).
+  avg_price: number;
+  min_price: number;
+  max_price: number;
 }
 
 export interface CustomerQuoteTableProps {
-  customerPrices: CustomerPrices;
-  customerPriceInputs: { [product: string]: string; };
-  handlePriceChange: (product: string, value: string) => void;
+  allBrandPrices: { [key in BrandName]?: { [product: string]: number } };
+  allBrandPriceInputs: { [key in BrandName]?: { [product:string]: string } };
+  handleBrandPriceChange: (brand: BrandName, product: string, value: string) => void;
   marketMinPrices: { [product: string]: MinPriceInfo };
   averagePrices: { [product: string]: number };
   comparisonMode: ComparisonMode;
-  handleModeChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  selectedPosto: PostoName;
-  handlePostoChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  handleModeToggle: () => void;
   quoteTableRef: RefObject<HTMLDivElement> | null;
   distributorColors: DistributorColors;
   products: string[];
-  selectedQuoteDistributor: string | undefined;
-  onQuoteDistributorChange: (distributor: string) => void;
   allDistributors: string[];
   selectedDistributors: Set<string>;
   onDistributorPillClick?: (distributor: string) => void;
-  isVolumeMode: boolean;
-  onVolumeModeToggle: () => void;
-  volumes: { [product: string]: string; };
-  onVolumeChange: (product: string, value: string) => void;
+  isComparisonMode: boolean;
+  onComparisonModeToggle: () => void;
+  onSaveQuote: () => void;
+  isSaveSuccess: boolean;
+  activeBrand: BrandName;
+  onActiveBrandChange: (brand: BrandName) => void;
 }
 
 export interface MarketDataTableProps {
@@ -91,6 +93,8 @@ export interface MarketDataTableProps {
     distributorColors: DistributorColors;
     selectedDistributors: Set<string>;
     highlightedDistributor: string | null;
+    marketDate: Date;
+    onDateChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface DistributorSelectionPanelProps {

@@ -75,6 +75,25 @@
         animation: pulse-shadow 1.5s ease-in-out; /* Faster animation */
         position: relative;
       }
+      
+      /* Custom styles for date input with green label */
+      .custom-date-picker-style {
+        color-scheme: light; /* Enforces a light-themed calendar popup */
+        /* The following properties are hints for some browsers to style the calendar */
+        background-color: white;
+        color: #166534; /* text-green-800 */
+      }
+
+      .custom-date-picker-style::-webkit-calendar-picker-indicator {
+          /* This filter converts the default dark icon to a shade of green */
+          filter: invert(31%) sepia(92%) saturate(985%) hue-rotate(94deg) brightness(96%) contrast(87%);
+          cursor: pointer;
+          transition: filter 0.2s ease-in-out;
+      }
+      .custom-date-picker-style::-webkit-calendar-picker-indicator:hover {
+        /* Make the green a bit brighter on hover */
+          filter: invert(31%) sepia(92%) saturate(1500%) hue-rotate(94deg) brightness(96%) contrast(87%);
+      }
 
     </style>
     <script>
